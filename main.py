@@ -7,6 +7,7 @@ import google.generativeai as genai
 from typing import List
 import os
 from starlette.requests import Request
+import uvicorn
 
 # Configure Google Generative AI
 GOOGLE_API_KEY = "AIzaSyCyq0jbEgSC9C-TykrFFVUK5_wQVhpjnS8"
@@ -61,6 +62,4 @@ async def get_result(request: Request, images: List[UploadFile] = File(...), fac
         "zip": zip,  # Pass the zip function to the template context
         "enumerate": enumerate  # Pass the enumerate function to the template context
     })
-if _name_ == "_main_":
-    port = int(os.environ.get("PORT", 8000))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
