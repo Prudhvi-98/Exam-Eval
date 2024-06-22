@@ -61,3 +61,6 @@ async def get_result(request: Request, images: List[UploadFile] = File(...), fac
         "zip": zip,  # Pass the zip function to the template context
         "enumerate": enumerate  # Pass the enumerate function to the template context
     })
+if _name_ == "_main_":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
