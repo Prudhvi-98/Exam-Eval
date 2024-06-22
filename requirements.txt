@@ -1,0 +1,1 @@
+google.generativeai pillow fastapi uvicorn starlette os typing
